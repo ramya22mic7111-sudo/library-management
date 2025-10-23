@@ -41,6 +41,6 @@ public class LibraryController {
     // Health check endpoint
     @GetMapping("/ping")
     public String ping() {
-        return "pong";
+        return "pong from A";
     }
 }
