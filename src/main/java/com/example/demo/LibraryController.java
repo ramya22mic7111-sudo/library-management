@@ -21,7 +21,7 @@ public class LibraryController {
     @GetMapping
     public String viewBooks(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
-        return "books";  // Thymeleaf template: books.html
+        return "books"; // Thymeleaf template: books.html
     }
 
     // Show form to add a book
@@ -36,5 +36,11 @@ public class LibraryController {
     public String addBook(@ModelAttribute("book") Book book) {
         bookService.addBook(book); // save book into DB
         return "redirect:/library"; // redirect to list page
+    }
+
+    // Health check endpoint
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong";
     }
 }
